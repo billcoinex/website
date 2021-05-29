@@ -8,6 +8,7 @@ import {Marginer} from "../../components/marginer";
 import {Button} from "../../components/button";
 import { DownArrow } from "../../components/downArrow";
 import { Navbar } from "../../components/navbar";
+import { TableComp } from "../../components/table";
 
 const TopConintainer = styled.div`
     width: 100%;
@@ -52,6 +53,8 @@ export function TopSection(props) {
                     <MotivationText>Buy and Sell Crypto Instantly</MotivationText>
                     <Marginer direction="vertical" margin="4em"/>
                     <Button>Signup now</Button>
+                    <Marginer direction="vertical" margin="4em"/>
+                    <TableComp/>
                     <DownArrowContainer onClick={scrollToNextSection}>
                         <DownArrow />
                     </DownArrowContainer>
