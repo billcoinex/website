@@ -1,49 +1,4 @@
-// import React from "react";
-// import styled from "styled-components";
-// import { withStyles, makeStyles } from '@material-ui/core/styles';
-// import Table from "@material-ui/core/Table";
-// import TableBody from "@material-ui/core/TableBody";
-// import TableCell from "@material-ui/core/TableCell";
-// import TableCointainer from "@material-ui/core/TableContainer";
-// import TableHead from "@material-ui/core/TableHead";
-// import TableRow from "@material-ui/core/TableRow";
-// import Paper from "@material-ui/core/Paper";
-
-// const useStyles = makeStyles({
-//     table: {
-//       minWidth: 700,
-//     },
-// });
-
-// export function TableComp(props) {
-// const classes = useStyles(); 
-
-//     return (
-//         <TableCointainer component={Paper}>
-//             <Table className={classes.table} aria-label="customized table">
-//                 <TableHead>
-//                     <TableRow>
-//                         <TableCell></TableCell>
-//                         <TableCell></TableCell>
-//                         <TableCell></TableCell>
-//                         <TableCell></TableCell>
-//                         <TableCell></TableCell>
-//                     </TableRow>
-//                 </TableHead>
-//                 <TableBody>
-//                     <TableRow>
-//                         <TableCell></TableCell>
-//                         <TableCell></TableCell>
-//                         <TableCell></TableCell>
-//                         <TableCell></TableCell>
-//                         <TableCell></TableCell>
-//                     </TableRow>
-//                 </TableBody>
-//             </Table>
-//      </TableCointainer>
-//     );
-// }
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -52,6 +7,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import styled from "styled-components";
 
 import { getServerSideProps } from "../../apis/coingenckoList";
 
@@ -73,35 +29,36 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-function createData(coin, price, hour, volume, mkcap) {
-  return { coin, price, hour, volume, mkcap };
-}
-
-var rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
-
 const useStyles = makeStyles({
   table: {
     minWidth: 700,
   },
 });
 
-// function getData(pr)
+const CoinLogoImg = styled.img`
+  width: 2.5em;
+  height: 2.5em;
+`;
+const coinImageContainer = styled.div`
+  display: flex;
+`;
 
 export function TableComp(props) {
   const classes = useStyles();
-//   const { data } = props.results;
-//   console.log(data);
-//   var rows = null;
-  getServerSideProps(props).then((response) => {
-     rows = response.props.results.data;
-    console.log(response.props.results);
-});
+  const [coins, setCoins] = useState([]);
+
+  useEffect(() => {
+    let mounted = true;
+    getServerSideProps(props)
+    .then(data => {
+      if(mounted) {
+        console.log(data.props);
+        setCoins(data.props.results.data)
+      }
+      return () => mounted = false;
+    });
+  })
+  
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="customized table">
@@ -115,15 +72,18 @@ export function TableComp(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.symbol}>
+          {coins.slice(0, 8).map((coin) => (
+            <StyledTableRow key={coin.symbol}>
               <StyledTableCell component="th" scope="row">
-                {row.coin}
+                <coinImageContainer>
+                  <CoinLogoImg src={coin.image}/>
+                    {coin.name}
+                </coinImageContainer>
               </StyledTableCell>
-              <StyledTableCell align="right">{row.price}</StyledTableCell>
-              <StyledTableCell align="right">{row.hour}</StyledTableCell>
-              <StyledTableCell align="right">{row.volume}</StyledTableCell>
-              <StyledTableCell align="right">{row.mkcap}</StyledTableCell>
+              <StyledTableCell align="right">{coin.price}</StyledTableCell>
+              <StyledTableCell align="right">{coin.hour}</StyledTableCell>
+              <StyledTableCell align="right">{coin.volume}</StyledTableCell>
+              <StyledTableCell align="right">{coin.mkcap}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
