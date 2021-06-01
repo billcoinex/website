@@ -52,7 +52,6 @@ export function TableComp(props) {
     getServerSideProps(props)
     .then(data => {
       if(mounted) {
-        console.log(data.props);
         setCoins(data.props.results.data)
       }
       return () => mounted = false;
