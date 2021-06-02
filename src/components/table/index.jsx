@@ -31,7 +31,7 @@ const StyledTableRow = withStyles((theme) => ({
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 700,
+    maxWidth: 1248,
   },
 });
 
@@ -39,33 +39,35 @@ const CoinLogoImg = styled.img`
   width: 2.5em;
   height: 2.5em;
 `;
-const coinImageContainer = styled.div`
+const CoinImageContainer = styled.div`
+  align-items: center;
   display: flex;
+  place-content: space-evenly;
 `;
 
 export function TableComp(props) {
   const classes = useStyles();
   const [coins, setCoins] = useState([]);
-
-  useEffect(() => {
-    let mounted = true;
+  var extractedData = JSON.stringify(coins);
+  useEffect((props) => {
     getServerSideProps(props)
     .then(data => {
+      let mounted = true;
       if(mounted) {
         setCoins(data.props.results.data)
       }
       return () => mounted = false;
     });
-  })
+  }, [extractedData])
   
   return (
-    <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="customized table">
+    <TableContainer className={classes.table}  component={Paper}>
+      <Table aria-label="customized table">
         <TableHead>
           <TableRow>
             <StyledTableCell>Coin</StyledTableCell>
             <StyledTableCell align="right">Price</StyledTableCell>
-            <StyledTableCell align="right">1hr</StyledTableCell>
+            <StyledTableCell align="right">24hr</StyledTableCell>
             <StyledTableCell align="right">Volume</StyledTableCell>
             <StyledTableCell align="right">Market Cap</StyledTableCell>
           </TableRow>
@@ -74,15 +76,16 @@ export function TableComp(props) {
           {coins.slice(0, 8).map((coin) => (
             <StyledTableRow key={coin.symbol}>
               <StyledTableCell component="th" scope="row">
-                <coinImageContainer>
+                <CoinImageContainer>
                   <CoinLogoImg src={coin.image}/>
-                    {coin.name}
-                </coinImageContainer>
+                  {coin.name}
+
+                </CoinImageContainer>
               </StyledTableCell>
-              <StyledTableCell align="right">{coin.price}</StyledTableCell>
-              <StyledTableCell align="right">{coin.hour}</StyledTableCell>
-              <StyledTableCell align="right">{coin.volume}</StyledTableCell>
-              <StyledTableCell align="right">{coin.mkcap}</StyledTableCell>
+              <StyledTableCell align="right">{coin.current_price}</StyledTableCell>
+              <StyledTableCell align="right">{coin.price_change_percentage_24h}</StyledTableCell>
+              <StyledTableCell align="right">{coin.total_volume}</StyledTableCell>
+              <StyledTableCell align="right">{coin.market_cap}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { Element, scroller } from "react-scroll";
 
 import BackgroundImg from "../../assets/pictures/blx_bbimg.jpg";
-import { Logo } from "../../components/logo";
 import {Marginer} from "../../components/marginer";
 import {Button} from "../../components/button";
 import { DownArrow } from "../../components/downArrow";

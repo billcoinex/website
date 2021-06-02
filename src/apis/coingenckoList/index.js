@@ -3,7 +3,8 @@ const CoinGeckoClient = new CoinGecko();
 
 export async function getServerSideProps(context) {
     const params = {
-        order: CoinGecko.ORDER.MARKET_CAP_DESC
+        order: CoinGecko.ORDER.MARKET_CAP_DESC,
+        per_page: 16
     }
     const results = await CoinGeckoClient.coins.markets(params);
     return {

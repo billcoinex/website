@@ -1,5 +1,4 @@
-import Homepage from './containers/homepage/index'
-import logo from './logo.svg';
+import Homepage from './containers/homepage/index';
 import './App.css';
 
 function App() {
