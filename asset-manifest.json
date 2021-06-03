@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/website/static/css/main.32f5dd17.chunk.css",
-    "main.js": "/website/static/js/main.26167e29.chunk.js",
-    "main.js.map": "/website/static/js/main.26167e29.chunk.js.map",
+    "main.js": "/website/static/js/main.d4a8fc17.chunk.js",
+    "main.js.map": "/website/static/js/main.d4a8fc17.chunk.js.map",
     "runtime-main.js": "/website/static/js/runtime-main.917d316e.js",
     "runtime-main.js.map": "/website/static/js/runtime-main.917d316e.js.map",
     "static/js/2.f89b2863.chunk.js": "/website/static/js/2.f89b2863.chunk.js",
@@ -14,7 +14,6 @@
     "static/js/2.f89b2863.chunk.js.LICENSE.txt": "/website/static/js/2.f89b2863.chunk.js.LICENSE.txt",
     "static/media/blx_bbimg.0277d7fa.jpg": "/website/static/media/blx_bbimg.0277d7fa.jpg",
     "static/media/bug_fixed.805bfbc9.png": "/website/static/media/bug_fixed.805bfbc9.png",
-    "static/media/logo.6ce24c58.svg": "/website/static/media/logo.6ce24c58.svg",
     "static/media/mobile_phone.bdfea3cf.png": "/website/static/media/mobile_phone.bdfea3cf.png",
     "static/media/rocket_launch_.afaf1715.png": "/website/static/media/rocket_launch_.afaf1715.png",
     "static/media/web_development_.59a2b9bb.png": "/website/static/media/web_development_.59a2b9bb.png"
@@ -23,6 +22,6 @@
     "static/js/runtime-main.917d316e.js",
     "static/js/2.f89b2863.chunk.js",
     "static/css/main.32f5dd17.chunk.css",
-    "static/js/main.26167e29.chunk.js"
+    "static/js/main.d4a8fc17.chunk.js"
   ]
 }
