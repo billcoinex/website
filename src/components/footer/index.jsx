@@ -108,15 +108,17 @@ const RightsReserved = styled.div`
   color: #fff;
   font-size: 12px;
 `;
-
-export function Footer(props) {
-  //get year to update Dynamically 
+function currentYear() {
+  const year = new Date();
+  return year.getUTCFullYear();
+}
+export function Footer(props) { 
   return (
     <FooterContainer>
       <Marginer direction="vertical" margin="5em" />
       <Logo small />
       <Marginer direction="vertical" margin="1em" />
-      <MotivationalText>Starting earning now</MotivationalText>
+      <MotivationalText>Start earning now</MotivationalText>
       <Marginer direction="vertical" margin="1em" />
       <ButtonContainer>
         <Button small>Creat Account</Button>
@@ -139,7 +141,7 @@ export function Footer(props) {
           </SocialIcon>
         </SocialContainer>
       </AccessibilityContainer>
-      <RightsReserved>&copy; 2020 Beema All rights reserved</RightsReserved>
+      <RightsReserved>&copy; {currentYear()} Beema All rights reserved</RightsReserved>
     </FooterContainer>
   );
 }

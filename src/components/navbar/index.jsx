@@ -11,7 +11,8 @@ const NavbarContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: ${theme.secondary};;
+  background-color: ${theme.secondary};
+  position: fixed;
 `;
 
 const BrandContainer = styled.div``;
