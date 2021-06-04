@@ -1,7 +1,7 @@
 {
   "name": "website",
   "version": "0.1.0",
-  "homepage": "billcoinex.com",
+  "homepage": " https://billcoinex.com/",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
