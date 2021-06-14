@@ -25,9 +25,10 @@ export function ServicesSection(props) {
       <Marginer direction="vertical" margin="3em" />
       <OurSerivce
         title="Fully integrated services"
-        description="We build and deliver fully integrated webapps
-          with customized control panels that fit your 
-          compnay needs"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Morbi tellus eros, elementum sed augue nec, sodales porta ante. Curabitur dictum sed risus quis dignissim. 
+        Nunc vulputate dolor vel tellus egestas, ac luctus neque pharetra. In nec viverra nibh, pharetra lobortis nunc. Nulla facilisi. In placerat, felis eu mollis viverra, sem massa viverra nunc, eget ultrices mauris metus gravida orci. 
+        Proin magna lacus, blandit id nulla pellentesque, eleifend malesuada metus"
         imgUrl={Service1Img}
       />
       <OurSerivce
