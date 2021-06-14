@@ -141,7 +141,7 @@ export function Footer(props) {
           </SocialIcon>
         </SocialContainer>
       </AccessibilityContainer>
-      <RightsReserved>&copy; {currentYear()} Beema All rights reserved</RightsReserved>
+      <RightsReserved>&copy; {currentYear()} Billcoinex All rights reserved</RightsReserved>
     </FooterContainer>
   );
 }
