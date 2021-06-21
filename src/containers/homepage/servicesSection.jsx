@@ -33,17 +33,16 @@ export function ServicesSection(props) {
       />
       <OurSerivce
         title="Mobile optimized"
-        description="We build and deliver fully integrated webapps
-          with customized control panels that fit your 
-          compnay needs"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Morbi tellus eros, elementum sed augue nec, sodales porta ante."
         imgUrl={Service2Img}
         isReversed
       />
       <OurSerivce
         title="Quality is our priority"
-        description="We have teams of professional developers, designers
-        and managers that ensures delivering the best 
-        software quality for your company"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Morbi tellus eros, elementum sed augue nec, sodales porta ante. Curabitur dictum sed risus quis dignissim. 
+        Nunc vulputate dolor vel tellus egestas, ac luctus neque pharetra."
         imgUrl={Service3Img}
       />
     </ServicesContainer>
