@@ -45,6 +45,18 @@ const CoinImageContainer = styled.div`
   place-content: space-evenly;
 `;
 
+const getColor = (price) => {
+  if (price < 0 ) return 'red';
+  return 'green';
+};
+
+const getPercetage = (percent) => {
+  if (percent >= 0 ) {
+    return `+${percent.toFixed(1)}%`
+  }
+  return `${percent.toFixed(1)}%`;
+}
+
 export function TableComp(props) {
   const classes = useStyles();
   const [coins, setCoins] = useState([]);
@@ -79,11 +91,10 @@ export function TableComp(props) {
                 <CoinImageContainer>
                   <CoinLogoImg src={coin.image}/>
                   {coin.name}
-
                 </CoinImageContainer>
               </StyledTableCell>
               <StyledTableCell align="right">{coin.current_price}</StyledTableCell>
-              <StyledTableCell align="right">{coin.price_change_percentage_24h}</StyledTableCell>
+              <StyledTableCell style={{ color: getColor(coin.price_change_percentage_24h) }} align="right">{getPercetage(coin.price_change_percentage_24h)}</StyledTableCell>
               <StyledTableCell align="right">{coin.total_volume}</StyledTableCell>
               <StyledTableCell align="right">{coin.market_cap}</StyledTableCell>
             </StyledTableRow>
