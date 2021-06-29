@@ -72,6 +72,9 @@ export function TableComp(props) {
     });
   }, [extractedData])
   
+  const handleRowClick = () => {
+    props.history.push("/coinDetails");
+  };
   return (
     <TableContainer className={classes.table}  component={Paper}>
       <Table aria-label="customized table">
@@ -86,7 +89,7 @@ export function TableComp(props) {
         </TableHead>
         <TableBody>
           {coins.slice(0, 8).map((coin) => (
-            <StyledTableRow key={coin.symbol}>
+            <StyledTableRow key={coin.symbol} onClick={handleRowClick}>
               <StyledTableCell component="th" scope="row">
                 <CoinImageContainer>
                   <CoinLogoImg src={coin.image}/>

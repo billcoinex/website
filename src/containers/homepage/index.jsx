@@ -15,7 +15,7 @@ flex-direction: column;
 function Homepage(props) {
     return (
         <PageContainer> 
-        <TopSection/>
+        <TopSection {...props}/>
         <ServicesSection/>
         <Marginer direction="vertical" margin="2em" />
         <MoreAboutSection />

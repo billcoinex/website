@@ -53,7 +53,7 @@ export function TopSection(props) {
                     <Marginer direction="vertical" margin="4em"/>
                     <Button>Signup now</Button>
                     <Marginer direction="vertical" margin="4em"/>
-                    <TableComp/>
+                    <TableComp {...props}/>
                     <DownArrowContainer onClick={scrollToNextSection}>
                         <DownArrow />
                     </DownArrowContainer>
