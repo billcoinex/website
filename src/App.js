@@ -10,7 +10,7 @@ function App() {
     <div className="App">
     <BrowserRouter>
       <Switch>
-        <Route path="/coinDetails" component={CoinDetails}></Route>
+        <Route path="/coinDetails/:id" component={CoinDetails}></Route>
         <Route path="/" component={Homepage}></Route>
       </Switch>
     </BrowserRouter>

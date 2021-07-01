@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -72,9 +73,6 @@ export function TableComp(props) {
     });
   }, [extractedData])
   
-  const handleRowClick = () => {
-    props.history.push("/coinDetails");
-  };
   return (
     <TableContainer className={classes.table}  component={Paper}>
       <Table aria-label="customized table">
@@ -89,7 +87,7 @@ export function TableComp(props) {
         </TableHead>
         <TableBody>
           {coins.slice(0, 8).map((coin) => (
-            <StyledTableRow key={coin.symbol} onClick={handleRowClick}>
+            <StyledTableRow component={Link} to={`/coinDetails/${coin.id}`} key={coin.symbol} style={{ textDecoration: 'none' }}>
               <StyledTableCell component="th" scope="row">
                 <CoinImageContainer>
                   <CoinLogoImg src={coin.image}/>

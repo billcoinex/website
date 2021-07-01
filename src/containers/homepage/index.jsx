@@ -1,17 +1,11 @@
 import React from "react";
-import styled from "styled-components";
 import { TopSection } from "./topsection";
 import { ServicesSection } from "./servicesSection";
 import { Marginer } from "../../components/marginer";
 import { MoreAboutSection } from "./moreAboutSection";
 import { Footer } from "../../components/footer";
+import { PageContainer } from "../../components/style/style_index";
 
-const PageContainer = styled.div`
-width: 100% !important;
-height: 100% !important;
-display: flex;
-flex-direction: column;
-`;
 function Homepage(props) {
     return (
         <PageContainer> 

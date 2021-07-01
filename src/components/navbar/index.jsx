@@ -36,9 +36,13 @@ const LoginButton = styled(Button)`
 `;
 
 export function Navbar(props) {
+  const handleRowClick = () => {
+    props.history.push("/");
+  };
+
   return (
     <NavbarContainer>
-      <BrandContainer>
+      <BrandContainer onClick={handleRowClick}>
         <Logo inline />
       </BrandContainer>
       <AccessibilityContainer>

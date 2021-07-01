@@ -47,7 +47,7 @@ export function TopSection(props) {
         <Element name="topSection">
             <TopConintainer>
                 <BackgroundFilter>
-                    <Navbar />
+                    <Navbar {...props}/>
                     <Marginer direction="vertical" margin="4em"/>
                     <MotivationText>Buy and Sell Crypto Instantly</MotivationText>
                     <Marginer direction="vertical" margin="4em"/>
