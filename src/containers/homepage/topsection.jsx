@@ -15,6 +15,8 @@ const TopConintainer = styled.div`
     padding: 0;
     background-image: url(${BackgroundImg});
     position: relative;
+    background-position: center;
+    background-size: cover;
 `;
 const BackgroundFilter = styled.div`
     width: 100%;

@@ -10,7 +10,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import styled from "styled-components";
 
-import { getServerSideProps } from "../../apis/coingenckoList";
+import { getCoinList } from "../../apis/coingenckoList";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -63,7 +63,7 @@ export function TableComp(props) {
   const [coins, setCoins] = useState([]);
   var extractedData = JSON.stringify(coins);
   useEffect((props) => {
-    getServerSideProps(props)
+    getCoinList(props)
     .then(data => {
       let mounted = true;
       if(mounted) {
@@ -85,9 +85,9 @@ export function TableComp(props) {
             <StyledTableCell align="right">Market Cap</StyledTableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
-          {coins.slice(0, 8).map((coin) => (
-            <StyledTableRow component={Link} to={`/coinDetails/${coin.id}`} key={coin.symbol} style={{ textDecoration: 'none' }}>
+        {coins.slice(0, 8).map((coin) => (
+        <TableBody key={coin.symbol}>
+            <StyledTableRow component={Link} to={`/coinDetails/${coin.id}`} style={{ textDecoration: 'none' }}>
               <StyledTableCell component="th" scope="row">
                 <CoinImageContainer>
                   <CoinLogoImg src={coin.image}/>
@@ -99,8 +99,8 @@ export function TableComp(props) {
               <StyledTableCell align="right">{coin.total_volume}</StyledTableCell>
               <StyledTableCell align="right">{coin.market_cap}</StyledTableCell>
             </StyledTableRow>
-          ))}
         </TableBody>
+        ))}
       </Table>
     </TableContainer>
   );
